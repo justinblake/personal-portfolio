@@ -9,20 +9,20 @@ var morgan = require("morgan");
 
 var path = require('path');
 var port = process.env.PORT || 8000;
-// var config = require('./config');
+var config = require('./config');
 
-// mongoose.connect(config.database);
+mongoose.connect(config.database);
 
 app.use(morgan("dev"));
 app.use(bodyParser.json());
-// app.use("/api", expressJwt({secret: config.secret}));
+app.use("/api", expressJwt({secret: config.secret}));
 
-// app.use(express.static(path.join(__dirname, 'public')));
-// app.use('/api/property', require('./src/routes/property-routes'));
-// app.use('/api/user', require('./src/routes/user-routes'));
-// app.use('/all', require('./src/routes/listing-routes'));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/api/property', require('./src/routes/property-routes'));
+app.use('/api/user', require('./src/routes/user-routes'));
+app.use('/all', require('./src/routes/listing-routes'));
 
-// app.use('/auth', require('./src/routes/auth-routes'));
+app.use('/auth', require('./src/routes/auth-routes'));
 
 
 
