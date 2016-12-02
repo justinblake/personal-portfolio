@@ -1,4 +1,4 @@
 module.exports = {
     secret: "house nail temple cross",
-    database : 'mongodb://localhost/property-manager'
+    database : process.env.MONGODB_URI || 'mongodb://localhost/property-manager'
 };
